@@ -1,27 +1,27 @@
 <dependencies>
+    <!-- Starter Web: Para controladores REST y Tomcat -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!-- JDBC starter: activa DataSource y HikariCP -->
+    <!-- JDBC starter: Activa DataSource y el pool de conexiones HikariCP -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>	
 
-    <!-- Starter test: incluye JUnit 5, Mockito, AssertJ, etc --> 
+    <!-- Driver de PostgreSQL: Sin el scope runtime para evitar fallos de carga en Docker -->
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+    </dependency>
+
+    <!-- Starter test: Para pruebas unitarias e integración --> 
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
         <scope>test</scope>
     </dependency>
-    
-    <!-- CAMBIO AQUÍ: Quita MySQL y pon PostgreSQL -->
-    <dependency>
-        <groupId>org.postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <scope>runtime</scope>
-    </dependency>
-
+</dependencies>
 </dependencies>
