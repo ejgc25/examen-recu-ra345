@@ -1,11 +1,15 @@
-services:
-  app:
-    image: ghcr.io/profies/aaee_mapamundi_sb:latest
-    container_name: aaee_mapamundi_app_xxx
+app:
+    image: ghcr.io/ejgc25/examen-recu-ra345:latest
+    container_name: gobierno_app
+    restart: always
     ports:
       - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+      - SPRING_DATASOURCE_USERNAME=${DB_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
     env_file:
       - .env
     depends_on:
-      - db
-    restart: always
+      - postgresql
